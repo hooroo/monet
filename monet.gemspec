@@ -13,17 +13,18 @@ Gem::Specification.new do |s|
   s.homepage      = ''
   s.license       = 'MIT'
 
-  s.files         = `git ls-files`.split($/)
-  s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
-  s.require_paths = ['lib']
+  s.files                 = `git ls-files`.split($/)
+  s.executables           = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.test_files            = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths         = ['lib']
+  s.required_ruby_version = '~> 2'
 
   s.add_dependency 'sass',            '>= 3.1.10'
+  s.add_dependency 'rails'
+  s.add_dependency 'slim'
   s.add_dependency 'railties'
   s.add_dependency 'sprockets-rails', '~> 2.0.0'
-
-  s.add_dependency 'pry'
-  s.add_dependency 'awesome_print'
+  s.add_dependency 'trollop'
 
   s.add_development_dependency 'bundler', '~> 1.3'
   s.add_development_dependency 'rspec-rails'
